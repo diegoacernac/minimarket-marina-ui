@@ -45,6 +45,10 @@ export class AuthService {
     localStorage.setItem('user_data', JSON.stringify(responseData.data.usuario))
     localStorage.setItem('user_menus', responseData.data.menus)
   }
+
+  getToken() {
+    return localStorage.getItem('access_token')
+  }
   
   login(loginRequest: LoginRequest): Observable<any> {
     const headers = this.addAuthorizationHeader()
