@@ -1,0 +1,55 @@
+<body>
+    <div class="main">
+        <section class="login-section">
+            <div class="login-container">
+                <div class="login-content">
+                    <div class="login-image">
+                        <figure>
+                            <img src="../../../assets/images/login/login-1.jpg" alt="login">
+                        </figure>
+                    </div>
+
+                    <div class="login-form">
+                        <h2 class="login-form-title">
+                            Inicia Sesión
+                        </h2>
+
+                        <form class="form-login" [formGroup]="loginForm" (ngSubmit)="login()">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Usuario
+                                </label>
+                                <label class="label-icon"><fa-icon [icon]="user"></fa-icon></label>
+                                <input type="text" class="form-control" formControlName="username">
+                                @if (showError('username')) {
+                                    <div class="message">
+                                        {{ getErrorMessage('username') }}
+                                    </div>
+                                }
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Clave
+                                </label>
+                                <label class="label-icon"><fa-icon [icon]="password"></fa-icon></label>
+                                <input type="password" class="form-control" formControlName="password" autocomplete="off">
+                                @if (showError('password')) {
+                                    <div class="message">
+                                        {{ getErrorMessage('password') }}
+                                    </div>
+                                }
+                            </div>
+
+                            <div class="form-group form-button">
+                                <button type="submit" class="form-submit" [disabled]="!loginForm.valid">
+                                    Ingresar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
