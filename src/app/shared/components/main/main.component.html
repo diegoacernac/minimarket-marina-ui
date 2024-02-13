@@ -1,0 +1,12 @@
+<body>
+    <div class="container-fluid g-0">
+        <app-header (sideNavToogled)="sideNavState = $event"></app-header>
+    </div>
+
+    <main>
+        <app-side-nav [sideNavState]="sideNavState" [ngClass]="{'app-side-nav-open': sideNavState}"></app-side-nav>
+        <div class="content-area" [ngClass]="{'content-area-shrink': sideNavState}">
+            <ng-content></ng-content>
+        </div>
+    </main>
+</body>

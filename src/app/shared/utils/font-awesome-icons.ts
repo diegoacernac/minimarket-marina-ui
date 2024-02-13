@@ -1,0 +1,40 @@
+import { 
+    faUser,
+    faLock,
+    faBoxOpen,
+    faGears,
+    faUsersGear,
+    faUserTie,
+    faFile,
+    faAppleWhole,
+    faBoxesStacked,
+    faRightToBracket,
+    faArrowLeft,
+    faArrowRight,
+    faBars,
+    faLeftLong,
+    faBarcode,
+    faEdit,
+    faPlus
+} from '@fortawesome/free-solid-svg-icons';
+
+export const iconsfa = {
+    user: faUser,
+    password: faLock,
+    boxOpen: faBoxOpen,
+    gears: faGears,
+    usersGear: faUsersGear,
+    userTie: faUserTie,
+    file: faFile,
+    appleWhole: faAppleWhole,
+    boxesStacked: faBoxesStacked,
+    rightToBracket: faRightToBracket,
+    left: faArrowLeft,
+    right: faArrowRight,
+    bars: faBars,
+    text: faFile,
+    back: faLeftLong,
+    barcode: faBarcode,
+    edit: faEdit,
+    plus: faPlus
+}

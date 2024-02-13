@@ -1,0 +1,44 @@
+<div class="side-nav-content">
+    <ul class="nav-list" [ngClass]="{'nav-list-open': sideNavState}">
+        <li class="nav-list-item active">
+            <label class="label-icon">
+                <fa-icon [icon]="user"></fa-icon>
+            </label>
+            <button button (click)="goToSelectedPage('profile')"
+                class="btn btn-toggle d-inline-flex align-items-center rounded border-0">
+                <span class="fs-5 fw-semibold">{{ username }}</span>
+            </button>
+        </li>
+        <li class="border-top my-3"></li>
+    </ul>
+
+    @for (menu of menus; track menu.idmenu) {
+        <ul class="nav-list">
+            <li class="nav-list-item active">
+                <label class="label-icon">
+                    <fa-icon [icon]="menu.iconfa">
+                    </fa-icon>
+                </label>
+                <button (click)="goToSelectedPage(menu.route)"
+                    class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#home-collapse">
+                    {{ menu.description }}
+                </button>
+            </li>
+            <li class="border-top my-3"></li>
+        </ul>
+    }
+
+    <ul class="nav-list">
+        <li class="nav-list-item active">
+            <label class="label-icon">
+                <fa-icon [icon]="closeSession"></fa-icon>
+            </label>
+            <button (click)="logOut()"
+                class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse" data-bs-target="#home-collapse">
+                Cerrar Sesión
+            </button>
+        </li>
+    </ul>
+</div>

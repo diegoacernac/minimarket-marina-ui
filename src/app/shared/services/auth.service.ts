@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoginRequest } from '../models/login-request';
+import { LoginRequest } from '../models/login/login-request';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { Router } from '@angular/router';
@@ -43,11 +43,21 @@ export class AuthService {
   private addDataLocalStorage(responseData: any): void {
     localStorage.setItem('access_token', responseData.data.token)
     localStorage.setItem('user_data', JSON.stringify(responseData.data.usuario))
-    localStorage.setItem('user_menus', responseData.data.menus)
+    localStorage.setItem('user_menus', JSON.stringify(responseData.data.menus))
   }
 
   getToken() {
     return localStorage.getItem('access_token')
+  }
+
+  getUserData() {
+    let data = JSON.parse(localStorage.getItem('user_data')!)
+    return data
+  }
+
+  getUserMenus() {
+    let menus = JSON.parse(localStorage.getItem('user_menus')!)
+    return menus
   }
   
   login(loginRequest: LoginRequest): Observable<any> {

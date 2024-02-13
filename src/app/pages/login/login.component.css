@@ -27,6 +27,7 @@ body {
   background: #bfe0dc;
   font-weight: 400;
   font-family: Poppins;
+  min-height: 100vh;
 }
 
 .login-container {

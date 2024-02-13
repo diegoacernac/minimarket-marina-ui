@@ -1,0 +1,117 @@
+<app-main>
+    <body>
+        <main>
+            <section>
+                <div class="container">
+                <fa-icon class="btn-back" [icon]="back" (click)="goBack()"></fa-icon>
+
+                <div class="form-content">
+                    <div class="form">
+                        <h2 class="title">
+                            Agregar Producto
+                        </h2>
+
+                        <hr class="my-4">
+                    
+                        <form class="form-product" [formGroup]="form" (ngSubmit)="save()">
+                            <div class="row g-3">
+                                <div class="form-group col-sm-6">
+                                    <div class="form-label">Código de Barras</div>
+                                    <input type="number" class="form-control" formControlName="barcode">
+                                    @if (showError('barcode')) {
+                                    <div class="message">
+                                        {{ getErrorMessage('barcode') }}
+                                    </div>
+                                    }
+                                </div>
+    
+                                <div class="col-sm-6">
+                                    <label class="form-label">Categoría</label>
+                                    <select class="form-select" formControlName="categoryId">
+                                      @for (category of categories; track category.categoryId) {
+                                          <option [value]="category.categoryId">
+                                            {{ category.description }}
+                                          </option>
+                                      }
+                                    </select>
+                                </div>
+    
+                                <div class="col">
+                                    <div class="form-label">
+                                        Descripción
+                                    </div>
+                                    <input type="text" class="form-control" formControlName="description">
+                                    @if (showError('description')) {
+                                    <div class="message">
+                                        {{ getErrorMessage('description') }}
+                                    </div>
+                                    }
+                                </div>
+                            </div>
+    
+                            <div class="row gy-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Unidad de Medida</label>
+                                    <select class="form-select" formControlName="unitofmeasurement">
+                                        <option>NA</option>
+                                        <option>Litro</option>
+                                        <option>Ml</option>
+                                        <option>Kilo</option>
+                                        <option>Gramo</option>
+                                        <option>Und</option>
+                                    </select>
+                                </div>
+    
+                                <div class="col-md-6">
+                                    <label for="state" class="form-label">Perecible</label>
+                                    <select class="form-select" formControlName="perishable">
+                                        <option [value]="0">Sí</option>
+                                        <option [value]="1">No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row gy-3">
+                                <div class="col-md-6">
+                                    <div class="form-label">Precio Compra</div>
+                                    <input type="number" class="form-control" formControlName="purchasePrice">
+                                    @if (showError('purchasePrice')) {
+                                    <div class="message">
+                                        {{ getErrorMessage('purchasePrice') }}
+                                    </div>
+                                    }
+                                </div>
+    
+                                <div class="col-md-6">
+                                    <div class="form-label">Precio Venta</div>
+                                    <input type="text" class="form-control" formControlName="salePrice">
+                                    @if (showError('salePrice')) {
+                                    <div class="message">
+                                        {{ getErrorMessage('salePrice') }}
+                                    </div>
+                                    }
+                                </div>
+                            </div>
+    
+                            <hr class="my-4">
+    
+                            <div class="form-group form-button">
+                                <button class="form-submit" type="submit" [disabled]="!form.valid">
+                                    Guardar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="image">
+                        <figure>
+                            <img src="../../../assets/images/product/add-prd-1.jpg" alt="product">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            </section>
+        </main>
+    </body>
+</app-main>

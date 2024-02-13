@@ -1,0 +1,63 @@
+<app-main>
+  <body>
+    <main>
+      <section>
+        <div class="container">
+          <fa-icon class="btn-regresar" [icon]="back" (click)="goBack()"></fa-icon>
+
+          <div class="table-content">
+            <div class="table">
+              <div class="content-div">
+                <div class="title">
+                  <h2>
+                    Categorías
+                  </h2>
+  
+                  <fa-icon class="btn-plus" [icon]="add" (click)="addCategory()"></fa-icon>
+                </div>
+                <hr>
+
+                <mat-form-field>
+                  <mat-label>
+                    Búsqueda
+                  </mat-label>
+                  <input matInput (keyup)="applyFilter($event)" #input>
+                </mat-form-field>
+                
+                <div class="mat-elevation-z8">
+                  <table mat-table [dataSource]="dataSource" matSort>
+                    <ng-container matColumnDef="id">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                      <td mat-cell *matCellDef="let row"> {{ row.categoryId }} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="description">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripción </th>
+                      <td mat-cell *matCellDef="let row"> {{ row.description }} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="actions">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+                      <td mat-cell *matCellDef="let row">
+                        <fa-icon class="edit" [icon]="edit" (click)="editRow(row)"></fa-icon>
+                      </td>
+                    </ng-container>
+                    
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              
+                    <tr class="mat-row" *matNoDataRow>
+                      <td class="mat-cell" colspan="4">No hay datos que coincidan con su búsqueda: "{{input.value}}"</td>
+                    </tr>
+                  </table>
+                    
+                  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</app-main>

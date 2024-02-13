@@ -1,0 +1,45 @@
+<app-main>
+    <body>
+        <main>
+            <section>
+                <div class="container">
+                    <fa-icon class="btn-regresar" [icon]="back" (click)="goBack()"></fa-icon>
+
+                    <div class="form-content">
+                        <div class="form">
+                            <h2 class="title">
+                                Agregar Categoría
+                            </h2>
+
+                            <form class="form-category" [formGroup]="form" (ngSubmit)="save()">
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        Descripción
+                                    </label>
+    
+                                    <label class="label-icon">
+                                        <fa-icon [icon]="text"></fa-icon>
+                                    </label>
+    
+                                    <input type="text" class="form-control" formControlName="description">
+                                </div>
+
+                                <div class="form-group form-button">
+                                    <button class="form-submit" type="submit" [disabled]="!form.valid">
+                                        Guardar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="image">
+                            <figure>
+                                <img src="../../../assets/images/category/add-cat-1.jpg" alt="category">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</app-main>

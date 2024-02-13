@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 import { FormControlValidationService } from '../../shared/services/form-control-validation.service';
 import { Router } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
+import { iconsfa } from '../../shared/utils/font-awesome-icons';
 
 @Component({
   selector: 'app-login',
@@ -26,8 +26,8 @@ import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup
   formControlArray: Array<string> = ['username', 'password'];
-  user = faUser
-  password = faLock
+  user = iconsfa.user
+  password = iconsfa.password
 
   constructor(
     private formBuilder: FormBuilder,

@@ -1,1 +1,19 @@
-<button (click)="logOut()">Cerrar Sesión</button>
+<app-main>
+  <body>
+    <main>
+      <div class="container py-4">
+        <div class="row align-items-md-stretch">
+          @for (menu of menus; track menu.idmenu) {
+            <div id="menu-container" class="col-md-6">
+              <a class="menu-link" (click)="goToModule(menu.route)">
+                <div id="item-data" class="h-100 p-5 menu-img" style="background-image: url('{{ menu.icon }}');">
+                  <h2 class="title-card">{{ menu.description }}</h2>
+                </div>
+              </a>
+            </div>
+          }
+        </div>
+      </div>
+    </main>
+  </body>
+</app-main>
